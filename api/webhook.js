@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   if (!chatId) return res.status(200).send("no chat");
 
   if (text === "/start") {
-    await fetch(`https://api.telegram.org/bot${8251671545:AAFoVL8TKKJCu6eaDyfZtfVPEm70_zHJ6Kg}/sendMessage`, {
+    await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ chat_id: chatId, text: "hello" })
