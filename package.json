@@ -1,0 +1,5 @@
+{
+  "name": "telegram-vercel-bot",
+  "private": true,
+  "type": "module"
+}
