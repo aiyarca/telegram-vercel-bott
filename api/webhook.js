@@ -2,9 +2,7 @@
 
 module.exports = async (req, res) => {
   try {
-    if (req.method !== "POST") {
-      return res.status(200).send("OK");
-    }
+    if (req.method !== "POST") return res.status(200).send("OK");
 
     const BOT_TOKEN = process.env.BOT_TOKEN;
     if (!BOT_TOKEN) {
@@ -28,28 +26,35 @@ module.exports = async (req, res) => {
     const text = message.text || "";
 
     if (text === "/start") {
-      await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      const msg = `<b>Get access to the community</b>
+
+Once the payment is confirmed enter /commands to get started
+
+💳 <b>Bitcoin:</b> 150$ BTC (Payment address below 👇🏻)
+<code>bc1qmsv44alvzpw6mufpxd8yreclrsud4wc98ptkmm</code>
+
+💳 <b>Ethereum:</b> 150$ ETH (Payment address below 👇🏻)
+<code>0x694d3be01f6500f961017d60BA6cFEA65744F5F2</code>
+
+💳 <b>Solana:</b> 150$ SOL (Payment address below 👇🏻)
+<code>3KwrUhvsxbjdF1zJsBZ5yFEXiyZGwQixPjbnNeZXVyhj</code>
+
+<i>Once the payment is made, please allow 1 hour for the blockchain to confirm the payment.</i>`;
+
+      const tgRes = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           chat_id: chatId,
-          parse_mode: "MarkdownV2",
-          text: `*Buy access to Polycube Trading BOT 🤖*
-
-Once the payment is confirmed, enter /commands to get started.
-
-💳 *Bitcoin:* 150\\$ BTC  
-\`bc1qmsv44alvzpw6mufpxd8yreclrsud4wc98ptkmm\`
-
-💳 *Ethereum:* 150\\$ ETH  
-\`0x694d3be01f6500f961017d60BA6cFEA65744F5F2\`
-
-💳 *Solana:* 150\\$ SOL  
-\`3KwrUhvsxbjdF1zJsBZ5yFEXiyZGwQixPjbnNeZXVyhj\`
-
-_Once payment is made, please allow up to 1 hour for blockchain confirmation._`
-        })
+          parse_mode: "HTML",
+          text: msg,
+          disable_web_page_preview: true,
+        }),
       });
+
+      // Log Telegram errors (this is SUPER helpful on Vercel)
+      const data = await tgRes.json();
+      if (!data.ok) console.error("Telegram sendMessage error:", data);
     }
 
     return res.status(200).json({ ok: true });
