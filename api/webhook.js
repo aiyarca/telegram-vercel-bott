@@ -26,8 +26,7 @@ module.exports = async (req, res) => {
     const text = message.text || "";
 
     if (text === "/start") {
-      const msg = `<b>Get access to the community</b>
-
+      const msg = `<b>Buy access to Polycube Trading BOT 🤖</b>
 Once the payment is confirmed enter /commands to get started
 
 💳 <b>Bitcoin:</b> 150$ BTC (Payment address below 👇🏻)
