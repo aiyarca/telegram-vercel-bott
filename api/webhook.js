@@ -30,13 +30,13 @@ module.exports = async (req, res) => {
 Once the payment is confirmed enter /commands to get started
 
 💳 <b>Bitcoin:</b> 150$ BTC (Payment address below 👇🏻)
-<code>bc1qmsv44alvzpw6mufpxd8yreclrsud4wc98ptkmm</code>
+<code>bc1qmsv44alvzpw6mufpxd8yreclrsud4wc98ptkmm</code> (Click to copy)
 
 💳 <b>Ethereum:</b> 150$ ETH (Payment address below 👇🏻)
-<code>0x694d3be01f6500f961017d60BA6cFEA65744F5F2</code>
+<code>0x694d3be01f6500f961017d60BA6cFEA65744F5F2</code> (Click to copy)
 
 💳 <b>Solana:</b> 150$ SOL (Payment address below 👇🏻)
-<code>3KwrUhvsxbjdF1zJsBZ5yFEXiyZGwQixPjbnNeZXVyhj</code>
+<code>3KwrUhvsxbjdF1zJsBZ5yFEXiyZGwQixPjbnNeZXVyhj</code> (Click to copy)
 
 <i>Once the payment is made, please allow 1 hour for the blockchain to confirm the payment.</i>`;
 
