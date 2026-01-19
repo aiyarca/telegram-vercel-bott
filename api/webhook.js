@@ -33,7 +33,19 @@ module.exports = async (req, res) => {
       await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ chat_id: chatId, text: "🔒Please enter your validation key to start trading on the BOT :" }),
+        body: JSON.stringify({ chat_id: chatId, text: `Buy access to Polycube Trading BOT 🤖
+Once the payment is confirmed enter /commands to get started
+
+💳 Bitcoin: 150$ BTC (Payment address below 👇🏻)
+\`bc1qmsv44alvzpw6mufpxd8yreclrsud4wc98ptkmm\` (click to copy)
+
+💳 Ethereum: 150$ ETH (Payment address below 👇🏻)
+\`0x694d3be01f6500f961017d60BA6cFEA65744F5F2\` (click to copy)
+
+💳 Solana: 150$ SOL (Payment address below 👇🏻)
+\`3KwrUhvsxbjdF1zJsBZ5yFEXiyZGwQixPjbnNeZXVyhj\` (click to copy)
+
+Once the payment made, please allow 1 hour for the blockchain to confirm the payment` }),
       });
     }
 
